@@ -1,0 +1,18 @@
+<%text>## Path:        Development/Jenkins
+## Description: Jenkins Continuous Integration Server
+## Type:        string
+## Default:     "/var/lib/jenkins"
+## ServiceRestart: jenkins</%text>
+
+JENKINS_HOME="${node.metadata['jenkins'].get('jenkins_home', '/var/lib/jenkins')}"
+JENKINS_JAVA_CMD="${node.metadata['jenkins'].get('java_cmd', '')}"
+JENKINS_USER="${node.metadata['jenkins'].get('user', 'jenkins')}"
+#JENKINS_INSTALL_SKIP_CHOWN="false"
+JENKINS_JAVA_OPTIONS="${node.metadata['jenkins'].get('java_options', '-Djava.awt.headless=true')}"
+JENKINS_PORT="${node.metadata['jenkins'].get('port', '8080')}"
+JENKINS_LISTEN_ADDRESS="${node.metadata['jenkins'].get('listen_address', '')}"
+JENKINS_DEBUG_LEVEL="5"
+JENKINS_ENABLE_ACCESS_LOG="no"
+JENKINS_HANDLER_MAX="${node.metadata['jenkins'].get('handler_max', '100')}"
+JENKINS_HANDLER_IDLE="${node.metadata['jenkins'].get('handler_idle', '20')}"
+JENKINS_ARGS="${node.metadata['jenkins'].get('jenkins_args', '')}"
