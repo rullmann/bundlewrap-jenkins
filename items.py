@@ -13,7 +13,7 @@ files = {
         'owner': "root",
         'mode': "0600",
         'needs': [
-            "pkg_yum:jenkins",
+            "pkg_dnf:jenkins",
         ],
         'triggers': [
             "svc_systemd:jenkins:restart",
@@ -28,7 +28,7 @@ actions = {
     },
 }
 
-pkg_yum = {
+pkg_dnf = {
     "jenkins": {
         'needs': [
             "file:/etc/yum.repos.d/jenkins.repo",
@@ -41,7 +41,7 @@ svc_systemd = {
     'jenkins': {
         'enabled': True,
         'needs': [
-            "pkg_yum:jenkins",
+            "pkg_dnf:jenkins",
         ],
     },
 }
