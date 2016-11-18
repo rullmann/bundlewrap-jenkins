@@ -1,6 +1,6 @@
 # jenkins
 
-The `jenkins` bundle installs the popular automation service [Jenkins](https://jenkins.io/) from the official yum repo.
+The `jenkins` bundle installs the popular automation service [Jenkins](https://jenkins.io/) from the official dnf repo.
 It additionally configures some basic options set within it's `sysconfig` file
 
 ## Compatibility
@@ -19,8 +19,8 @@ This bundle has been tested on the following systems:
 ## Integrations
 
 * Bundles:
-  * [yum](https://github.com/rullmann/bundlewrap-yum)
-    * If `yum`-bundle is available OpenJDK is installed automatically.
+  * [dnf](https://github.com/rullmann/bundlewrap-dnf)
+    * If `dnf`-bundle is available OpenJDK is installed automatically.
 
 ## Metadata
 

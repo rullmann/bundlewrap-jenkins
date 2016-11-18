@@ -4,7 +4,7 @@ files = {
         'owner': "root",
         'mode': "0644",
         'triggers': [
-            "action:yum_makecache",
+            "action:dnf_makecache",
         ],
     },
     '/etc/sysconfig/jenkins': {
