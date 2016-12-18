@@ -6,5 +6,5 @@
     stop program  = "/usr/bin/systemctl stop jenkins"
     if cpu > 25% for 2 cycles then alert
     if cpu > 50% for 5 cycles then restart
-    if failed host ${node.metadata['jenkins'].get('listen_address', '127.0.0.1')} port ${node.metadata['jenkins'].get('port', '8080')} type tcp
+    if failed host ${node.metadata['jenkins'].get('listen_address', '127.0.0.1')} port ${node.metadata['jenkins'].get('port', '8080')} type tcp then restart
     if 3 restarts within 5 cycles then timeout
