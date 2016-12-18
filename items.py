@@ -45,3 +45,15 @@ svc_systemd = {
         ],
     },
 }
+
+if node.has_bundle("monit"):
+    files['/etc/monit.d/jenkins'] = {
+        'source': "monit",
+        'mode': "0640",
+        'owner': "root",
+        'group': "root",
+        'content_type': "mako",
+        'triggers': [
+            "svc_systemd:monit:restart",
+        ],
+    }

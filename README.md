@@ -21,6 +21,7 @@ This bundle has been tested on the following systems:
 * Bundles:
   * [dnf](https://github.com/rullmann/bundlewrap-dnf)
     * If `dnf`-bundle is available OpenJDK is installed automatically.
+  * [monit](https://github.com/rullmann/bundlewrap-monit)
 
 ## Metadata
 
