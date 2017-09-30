@@ -1,7 +1,6 @@
 files = {
     '/etc/yum.repos.d/jenkins.repo': {
         'source': "jenkins.repo",
-        'owner': "root",
         'mode': "0644",
         'triggers': [
             "action:dnf_makecache",
@@ -10,7 +9,6 @@ files = {
     '/etc/sysconfig/jenkins': {
         'source': "sysconfig",
         'content_type': "mako",
-        'owner': "root",
         'mode': "0600",
         'needs': [
             "pkg_dnf:jenkins",
@@ -39,7 +37,6 @@ pkg_dnf = {
 
 svc_systemd = {
     'jenkins': {
-        'enabled': True,
         'needs': [
             "pkg_dnf:jenkins",
         ],
@@ -50,8 +47,6 @@ if node.has_bundle("monit"):
     files['/etc/monit.d/jenkins'] = {
         'source': "monit",
         'mode': "0640",
-        'owner': "root",
-        'group': "root",
         'content_type': "mako",
         'triggers': [
             "svc_systemd:monit:restart",
