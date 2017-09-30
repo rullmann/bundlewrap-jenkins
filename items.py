@@ -2,20 +2,14 @@ files = {
     '/etc/yum.repos.d/jenkins.repo': {
         'source': 'jenkins.repo',
         'mode': '0644',
-        'triggers': [
-            'action:dnf_makecache',
-        ],
+        'triggers': ['action:dnf_makecache'],
     },
     '/etc/sysconfig/jenkins': {
         'source': 'sysconfig',
         'content_type': 'mako',
         'mode': '0600',
-        'needs': [
-            'pkg_dnf:jenkins',
-        ],
-        'triggers': [
-            'svc_systemd:jenkins:restart',
-        ],
+        'needs': ['pkg_dnf:jenkins'],
+        'triggers': ['svc_systemd:jenkins:restart'],
     },
 }
 
@@ -28,18 +22,13 @@ actions = {
 
 pkg_dnf = {
     'jenkins': {
-        'needs': [
-            'file:/etc/yum.repos.d/jenkins.repo',
-            'action:jenkins_import_gpg_key'
-        ],
+        'needs': ['file:/etc/yum.repos.d/jenkins.repo', 'action:jenkins_import_gpg_key'],
     },
 }
 
 svc_systemd = {
     'jenkins': {
-        'needs': [
-            'pkg_dnf:jenkins',
-        ],
+        'needs': ['pkg_dnf:jenkins'],
     },
 }
 
@@ -48,7 +37,5 @@ if node.has_bundle('monit'):
         'source': 'monit',
         'mode': '0640',
         'content_type': 'mako',
-        'triggers': [
-            'svc_systemd:monit:restart',
-        ],
+        'triggers': ['svc_systemd:monit:restart'],
     }
