@@ -3,6 +3,10 @@
 The `jenkins` bundle installs the popular automation service [Jenkins](https://jenkins.io/) from the official dnf repo.
 It additionally configures some basic options set within it's `sysconfig` file
 
+## Maintenance notice
+
+As of February 2018 this bundle will not be mainained anymore. If you encounter any issues I cannot help.
+
 ## Requirements
 
 * Java
